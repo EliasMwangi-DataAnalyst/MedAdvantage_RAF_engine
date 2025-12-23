@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: postgres
+    schema: public
+    tables:
+      - name: members
+      - name: medical_claims
+      - name: pharmacy_claims

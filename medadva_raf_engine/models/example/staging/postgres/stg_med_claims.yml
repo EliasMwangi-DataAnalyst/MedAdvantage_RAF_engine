@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: stg_med_claims
+    description: >
+      Cleaned and standardized medical claims data.
+      One row per medical claim.
+
+    columns:
+      - name: claim_id
+        description: Primary identifier for a medical claim
+        tests:
+          - not_null
+          - unique
+
+      - name: member_id
+        description: Foreign key to stg_members.member_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_members')
+                field: member_id

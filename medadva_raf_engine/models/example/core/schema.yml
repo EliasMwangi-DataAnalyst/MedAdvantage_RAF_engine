@@ -1,0 +1,107 @@
+version: 2
+
+models:
+  - name: core_member
+    description: >
+      canonical member dimension.
+      one row per enrolled Medicare Advantage member.
+
+
+    columns:
+      - name: member_id
+        description: primary key for members 
+        tests: 
+          - not_null
+          - unique
+
+      - name: date_of_birth
+        description: Member date of birth 
+        tests: 
+          - not_null
+
+      - name: gender
+        description: Member gender
+
+      - name: plan_id
+        description: Medicare Advantage plan identifier
+
+      - name: enrollment_start
+        description: Enrollment start date
+        tests:
+          - not_null
+
+      - name: enrollment_end
+        description: Enrollment end date
+
+
+  - name: core_med_claims
+    description: >
+      canonical medical claims fact table.
+      one row per medical claim.
+
+    columns:
+      - name: claim_id
+        description: primary key for medical_claims 
+        tests: 
+          - not_null
+          - unique 
+
+      - name: member_id 
+        description: Foreign key to core_members 
+        tests: 
+          - not_null           
+          - relationships:
+              arguments: 
+                to: ref('core_member')
+                field: member_id 
+
+      - name: claim_date
+        description: Date of service
+        tests:
+          - not_null
+
+      - name: icd10_code
+        description: ICD-10 diagnosis code
+        tests:
+          - not_null
+
+      - name: amount
+        description: Claim allowed or paid amount
+        tests:
+          - not_null
+
+
+  - name: core_pharmacy_claim
+    description: >
+      canonical pharmacy claims fact table 
+      one row per prescription fill 
+
+    columns: 
+      - name: rx_claim_id
+        description: primary key in pharmacy claims 
+        tests: 
+          - not_null
+          - unique 
+
+      - name: member_id
+        description: foreign key from members 
+        tests: 
+         - not_null          
+         - relationships:
+            arguments:
+              to: ref('core_member')
+              field: member_id
+
+      - name: fill_date
+        description: Prescription fill date
+        tests:
+          - not_null
+
+      - name: ndc_code
+        description: National Drug Code
+        tests:
+          - not_null
+
+      - name: ingredient_cost
+        description: Cost of dispensed drug
+

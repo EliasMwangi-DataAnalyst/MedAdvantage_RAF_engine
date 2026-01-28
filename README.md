@@ -1,8 +1,3 @@
-Below is a **clean, professional README.md** you can paste directly into GitHub.
-It’s written to **signal real-world data engineering + healthcare domain knowledge**, not a toy dbt project.
-
----
-
 # Medicare Advantage Risk Adjustment Analytics Pipeline
 
 ## Overview
@@ -218,5 +213,6 @@ It is suitable for:
 * Build Looker / Power BI dashboards
 * Introduce incremental models
 * Add multi-year risk tracking
+
 
 

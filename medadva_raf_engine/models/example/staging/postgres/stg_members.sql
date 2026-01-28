@@ -16,7 +16,7 @@ renamed as (
 
         upper(nullif(trim (gender), '')  )          as gender,
         
-        cast(plan_id as int)                        as plan_code,
+        nullif(trim(plan_id), '')                       as plan_id,
         
         cast(enrollment_start as date)              as enrollment_start,
         cast(enrollment_end as date)                as enrollment_end,

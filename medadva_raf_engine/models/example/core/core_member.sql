@@ -10,7 +10,7 @@ filtered as (
         last_name,
         date_of_birth,
         gender,
-        plan_code,
+        plan_id,
         enrollment_start,
         enrollment_end,
         city,

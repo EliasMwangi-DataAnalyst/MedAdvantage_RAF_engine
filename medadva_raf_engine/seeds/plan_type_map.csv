@@ -1,0 +1,5 @@
+plan_id, plan_type, plan_description
+MA-SNP,Medicare Advantage SNP,Special Needs Plan 
+MA-HMO,Medicare Advantage HMO,Health Maintenance Organization 
+MA-PPO,Medicare Advantage PPO,Preferred Provider Organization 
+MA-EPO,Medicare Advantage EPO,Exclusive Provider Organization

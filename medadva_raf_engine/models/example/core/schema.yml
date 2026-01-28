@@ -24,6 +24,10 @@ models:
 
       - name: plan_id
         description: Medicare Advantage plan identifier
+        tests:
+          - relationships:
+              to: ref('plan_type_map')
+              field: plan_id 
 
       - name: enrollment_start
         description: Enrollment start date
@@ -105,3 +109,9 @@ models:
       - name: ingredient_cost
         description: Cost of dispensed drug
 
+  - name: member_hccs
+    description: Member-level HCC mart
+    columns: 
+      - name: member_id
+        tests: 
+          - not_null
